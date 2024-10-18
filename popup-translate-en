@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Maintainer: Helmut Stult <hst[at]e-mail[dot]de>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# Name: popup-translate-en
+#
+# Translates selected text in a popup window into the English language
+# dependencies to install: yad xclip translate-shell
+# 
+# If necessary, adjust the position of the yad popup window in geometry=
+#
+
+xclip -o | trans -e google -b -t en\
+| tee >(yad --geometry=600x400+100+100  --title="popup-translate to English" --text-info --wrap) >(xclip -i)
+exit 0
